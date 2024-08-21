@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODOAPP</title>
     <style>
-        
+        .item{
+            border:  4px double black;
+            padding:  10px;
+            margin: 5px;
+            border-radius: 5px;
+            background-color: rgb(208, 222, 222);
+        }
     </style>
 </head>
 <body>
@@ -13,7 +19,7 @@
     <div id="container">
     </div>
     <Script>
-        const tasks = ["Buy vegetables", "Revise localstorage", "Go to the gym", "Do the Assignment"];
+        const tasks = ["Buy vegetables", "Revise localstorage", "Go to the gym", "Do the Assignment", "Learn New Skills", "Do your Projects"];
 
         function loadTasks(){
             const container = document.getElementById('container');
@@ -24,6 +30,7 @@
                 container.innerHTML += `
                 <div class="item">
                     ${task}
+                    <button class= btn>Delete</button>
                 </div>
                 `
             }
