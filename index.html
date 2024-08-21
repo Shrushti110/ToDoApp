@@ -4,22 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODOAPP</title>
+    <style>
+        
+    </style>
 </head>
 <body>
     <h1>ToDoApp</h1>
-
     <div id="container">
-
     </div>
-
     <Script>
-        const tasks = ["Buy vegetables", "Revise localstorage", "Go to the gym"];
+        const tasks = ["Buy vegetables", "Revise localstorage", "Go to the gym", "Do the Assignment"];
 
         function loadTasks(){
             const container = document.getElementById('container');
+            container.innerHTML = '';
 
-            for (const task of tasks){
-                console.log(task);
+            for (const task of tasks)
+            {
+                container.innerHTML += `
+                <div class="item">
+                    ${task}
+                </div>
+                `
             }
         }
         loadTasks();
