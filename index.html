@@ -7,5 +7,22 @@
 </head>
 <body>
     <h1>ToDoApp</h1>
+
+    <div id="container">
+
+    </div>
+
+    <Script>
+        const tasks = ["Buy vegetables", "Revise localstorage", "Go to the gym"];
+
+        function loadTasks(){
+            const container = document.getElementById('container');
+
+            for (const task of tasks){
+                console.log(task);
+            }
+        }
+        loadTasks();
+    </Script>
 </body>
 </html>
