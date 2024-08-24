@@ -25,8 +25,9 @@
 </head>
 <body>
     <h1>ToDoApp</h1>
-    <div id="container">
-    </div>
+    <div id="container"></div>
+    <input type="text" id="input" placeholder="Enter a task">
+    <button onclick="addTask()">Add Task</button>
     <Script>
         const tasks = [];
 
@@ -36,7 +37,9 @@
             if(allTasks){
                 tasks.push(...allTasks)
             }
+            loadTasks();
         }
+        loadFromLocalStorage();
 
         function loadTasks(){
             localStorage.setItem('allTasks', JSON.stringify(tasks));
