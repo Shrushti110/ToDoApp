@@ -20,7 +20,6 @@
             cursor: pointer;
             border-radius: 10px;
             height: 20px;
-           
         }
     </style>
 </head>
@@ -40,16 +39,20 @@
                 container.innerHTML += `
                 <div class="item">
                     ${task}
-                    <button class="btn" type="button">Delete</button>
+                    <button class="btn" type="button" onclick="deleteTask('${task}')">Delete</button>
                 </div>
                 `
             }
         }
-
-        function deleteTask(){
-            
-        }
         loadTasks();
+        function deleteTask(task){
+            const taskIndex = tasks.indexOf(task);
+            tasks.splice(taskIndex, 1);
+
+            loadTasks();
+        }
+
+       
     </Script>
 </body>
 </html>
