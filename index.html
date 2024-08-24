@@ -8,9 +8,19 @@
         .item{
             border:  4px double black;
             padding:  10px;
-            margin: 5px;
+            margin: 10px;
             border-radius: 5px;
             background-color: rgb(208, 222, 222);
+            justify-content: space-between;
+            display:flex;
+        }
+        .btn{
+            background-color: rgb(235, 205, 76);
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            height: 20px;
+           
         }
     </style>
 </head>
@@ -30,10 +40,14 @@
                 container.innerHTML += `
                 <div class="item">
                     ${task}
-                    <button class= btn>Delete</button>
+                    <button class="btn" type="button">Delete</button>
                 </div>
                 `
             }
+        }
+
+        function deleteTask(){
+            
         }
         loadTasks();
     </Script>
