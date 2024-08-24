@@ -28,9 +28,19 @@
     <div id="container">
     </div>
     <Script>
-        const tasks = ["Buy vegetables", "Revise localstorage", "Go to the gym", "Do the Assignment", "Learn New Skills", "Do your Projects"];
+        const tasks = [];
+
+        function loadFromLocalStorage(){
+            const allTasks = JSON.parse(localStorage.getItem('allTasks'));
+
+            if(allTasks){
+                tasks.push(...allTasks)
+            }
+        }
 
         function loadTasks(){
+            localStorage.setItem('allTasks', JSON.stringify(tasks));
+
             const container = document.getElementById('container');
             container.innerHTML = '';
 
