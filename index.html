@@ -3,31 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODOAPP</title>
+    <title>TODO LIST</title>
     <style>
+        body{
+            background-color: black;
+        }
+        .head{
+            color: white;
+            text-align: center;
+        }
         .item{
-            border:  4px double black;
-            padding:  10px;
+            padding:17px;
             margin: 10px;
-            border-radius: 5px;
-            background-color: rgb(208, 222, 222);
+            border-radius:15px;
+            border: 1px solid orange;
+            background-color:  rgb(32, 32, 30);
             justify-content: space-between;
+            font-size: 18px;
+            color: white;
             display:flex;
+        
+        }
+        .item:hover{
+            box-shadow: 0px 0px 10px 2px orange;
         }
         .btn{
-            background-color: rgb(235, 205, 76);
             border: none;
             cursor: pointer;
+            color: orangered;
+            background-color:  rgb(32, 32, 30);
             border-radius: 10px;
-            height: 20px;
+            font-size: 15px;
+        }
+        
+        .task{
+            height: 350px;
+            overflow-y: scroll;
+        }
+        .input-containet{
+            display: flex;
+            justify-content: space-around;
+            margin: 8px;
+        }
+        .holder{
+            width: 90%;
+            font-size: 17px;
+            border-radius: 10px;
+            height: 50px;
+            margin-bottom: 40px;
+            border:1px solid white;
+            color: white;
+            background-color: rgb(32, 32, 30);
+        }
+        .holder:hover{
+            box-shadow: 0px 0 10px 2px gainsboro;
+        }
+        .add{
+            border-radius: 10px;
+            background-color:  rgb(32, 32, 30);
+            border: 1px solid white;
+            margin-bottom: 40px;
+            color: white;
+            width: 90px;
+        }
+        .add:hover{
+            box-shadow: 0px 0 10px 2px gainsboro;
         }
     </style>
 </head>
 <body>
-    <h1>ToDoApp</h1>
-    <div id="container"></div>
-    <input type="text" id="input" placeholder="Enter a task">
-    <button onclick="addTask()">Add Task</button>
+    <h1 class="head">Create your ToDo List</h1>
+    <div class="input-containet">
+        <input type="text" id="input" placeholder="Enter a task"  class="holder" >
+        <button onclick="addTask()" class="add">Add Task</button>
+    </div>
+    <div id="container" class="task"></div>
+
     <Script>
         const tasks = [];
 
@@ -52,7 +103,7 @@
                 container.innerHTML += `
                 <div class="item">
                     ${task}
-                    <button class="btn" type="button" onclick="deleteTask('${task}')">Delete</button>
+                    <button class="btn" type="button" onclick="deleteTask('${task}')">DELETE</button>
                 </div>
                 `
             }
@@ -63,6 +114,17 @@
             tasks.splice(taskIndex, 1);
 
             loadTasks();
+        }
+        function addTask(){
+            const taskInputElement = document.getElementById('input');
+            const task = taskInputElement.value;
+            if(!task){
+                alert('Please enter a task');
+                return;
+            }
+            tasks.push(task);
+            loadTasks();
+            taskInputElement.value = '';
         }
 
        
